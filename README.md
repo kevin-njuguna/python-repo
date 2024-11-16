@@ -1,3 +1,3 @@
 # python-repo
 
-Some description.
+Excited to take my python skills to the next level.

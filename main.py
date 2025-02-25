@@ -1,21 +1,15 @@
-name = "Kevy"
-age = 25
-gpa = 3.8
-is_student = True
+#INTRO
+name = input("what is your name: ")
+age= int(input("How old are you: "))
+age +=1
+print(f"Hello {name}")
+print(f"You are {age} years old")
 
-print(type(name))
-print(type(age))
-print(type(gpa))
-print(type(is_student))
+#AREA OF RECTANGLE
+length = float(input("length (m): "))
+width = float(input("width (m): "))
+area = length *width
 
-gpa = int(gpa)
-print(gpa)
-
-age = float(age)
-print(age)
-
-age = str(age)
-print(type(age))
-
-name = bool(name)
-print(name)
+print(f"length: {length} m")
+print(f"width: {width} m")
+print(f"area: {area} m²")

@@ -1,46 +1,29 @@
-import math
+#EXAMPLE 1
+age = int(input("Enter your age: "))
 
-friends = 10
-# (power) friends **= 2
-friends %= 2
+if age>100:
+    print("You are too old to sign up!")
+elif age>=18:
+    print("Sign up succesful")
+elif age<0:
+    print("You haven't been born yet")
 
-print(friends)
-
-x = 9.1
-y = 4
-z= 5 
-
-#result = round(x)
-#result = abs(y)
-#result = pow(y,3)
-result = max(x,y,z)
+else:
+    print("Sign up failed! You must be 18+ to sign up4")
 
 
+#EXAMPLE 2
+response = input("Would you like some food? (y/n)?: ")
 
-#print(math.pi)
-#print(math.e)
-#result = math.sqrt(x)
-result = math.ceil(x)
+if response=="y":
+    print("Here is some food for you!")
+else:
+    print("Got it! No food for you!")
+    
+#EXAMPLE 3:
+for_sale = True
 
-print(result)
-
-#Exercise 1: circumfrence of a circle
-radius = 2
-
-circumfrence = 2 * math.pi * radius
-print(round(circumfrence, 2))
-
-#Exercise 2: area of a circle
-radius = 2
-
-area = math.pi * (radius**2)
-print(round(area, 2))
-
-#exercise 3: hypotenuse
-a =3
-b=4
-
-c = math.sqrt(pow(a,2) + pow(b,2))
-print(c)
-
-
+if for_sale:
+    print("Purchase succesful!")
+else:
+    print("Not for sale!")

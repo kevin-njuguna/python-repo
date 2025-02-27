@@ -1,11 +1,23 @@
-#format specifiers - {:flags} that allows us to format a value based on what flags are inserted
+""" name = input("Enter your name: ")
 
-price1 = 3000.14519
-price2 = -9087.651
-price3 = 1200.34
 
-print(f"price 1: ${price1:.2f}")
-print(f"price 2: ${price2:.2f}")
-print(f"price 3: ${price3:.2f}")
-print(f"price 1: ${price1:>14}")
-print(f"price 2: ${price2:,}")
+while name=="":
+    print("You did not enter your name👿")
+    name=input("Enter your name:")
+print(f"Hello {name}!")
+
+age = int(input("Enter your age: "))
+while age <0:
+    print("Age can't be negative!")
+    age = int(input("Enter your age: "))
+print(f"You are {age} years old")
+ """
+
+food = input("Enter a food you like (q to quit): ")
+
+
+while not food=="q":
+    print(f"You like {food}")
+    food = input("Enter another food you like (q to quit): ")
+else:
+    print("Bye")

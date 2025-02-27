@@ -1,19 +1,10 @@
-#or, and and not
-#OR
-temp = 40
-is_raining = True
+num = 5
+a=6
+b=5
 
-if temp >455 or temp<0 or is_raining:
-    print("The outdoor event is cancelled!")
+print("Positive" if num > 0 else "Negative")
+max_num = a if a > b else b 
+min_num = a if a < b else b
 
-#AND
-if temp > 40 and is_raining:
-    print("The outdoor event is cancelled!")
-else: 
-    print("The outdoor event is ongoing!")
-    
-#NOT
-if not is_raining:
-    print("It is sunny")
-else:
-    print("It is raining")
+print(f"max_num:  {max_num}")
+print(f"min_num:  {min_num}")

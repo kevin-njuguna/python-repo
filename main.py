@@ -1,17 +1,14 @@
-operator = input("Enter an operator: (+ - * /): ")
-num1 = float(input("Enter the first number: "))
-num2 = float(input("Enter the second number: "))
+weight = float(input("Enter your weight: "))
+unit = input("Kilograms or Pounds? (K or L): ")
 
-if operator == "+" :
-    print(f"sum: {num1 +num2}")
-elif operator =="-":
-    print(f"subtraction: {num1 - num2}")
-elif operator == "*" :
-    print(f"product: {num1*num2}")
-elif operator == "/":
-    print(f"division: {num1/num2}")
+if unit == "K":
+    weight = weight * 2.205
+    print(f"{round(weight, 1)} Pounds")
+elif unit == "L":
+    weight = weight / 2.205
+    print(f"{weight} Kilograms")
 else:
-    print("Please enter a valid operator (+ - * /)")
+    print(f"{unit} was not valid")
     
 
     

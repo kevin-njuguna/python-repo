@@ -1,29 +1,18 @@
-#EXAMPLE 1
-age = int(input("Enter your age: "))
+operator = input("Enter an operator: (+ - * /): ")
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
 
-if age>100:
-    print("You are too old to sign up!")
-elif age>=18:
-    print("Sign up succesful")
-elif age<0:
-    print("You haven't been born yet")
-
+if operator == "+" :
+    print(f"sum: {num1 +num2}")
+elif operator =="-":
+    print(f"subtraction: {num1 - num2}")
+elif operator == "*" :
+    print(f"product: {num1*num2}")
+elif operator == "/":
+    print(f"division: {num1/num2}")
 else:
-    print("Sign up failed! You must be 18+ to sign up4")
-
-
-#EXAMPLE 2
-response = input("Would you like some food? (y/n)?: ")
-
-if response=="y":
-    print("Here is some food for you!")
-else:
-    print("Got it! No food for you!")
+    print("Please enter a valid operator (+ - * /)")
     
-#EXAMPLE 3:
-for_sale = True
 
-if for_sale:
-    print("Purchase succesful!")
-else:
-    print("Not for sale!")
+    
+

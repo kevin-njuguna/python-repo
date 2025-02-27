@@ -1,15 +1,19 @@
-weight = float(input("Enter your weight: "))
-unit = input("Kilograms or Pounds? (K or L): ")
+#or, and and not
+#OR
+temp = 40
+is_raining = True
 
-if unit == "K":
-    weight = weight * 2.205
-    print(f"{round(weight, 1)} Pounds")
-elif unit == "L":
-    weight = weight / 2.205
-    print(f"{weight} Kilograms")
+if temp >455 or temp<0 or is_raining:
+    print("The outdoor event is cancelled!")
+
+#AND
+if temp > 40 and is_raining:
+    print("The outdoor event is cancelled!")
+else: 
+    print("The outdoor event is ongoing!")
+    
+#NOT
+if not is_raining:
+    print("It is sunny")
 else:
-    print(f"{unit} was not valid")
-    
-
-    
-
+    print("It is raining")

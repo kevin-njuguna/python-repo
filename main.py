@@ -1,12 +1,13 @@
-import time
-duration = int(input("How long would you like to set the timer for (seconds): "))
+rows = int(input("Enter number of rows: "))
+columns = int(input("Enter number of columns: "))
+symbol = (input("Enter a symbol: "))
 
-for x in (range(duration, 0, -1)):
-    seconds = x % 60
-    minutes = int(x / 60) % 60
-    hours = int(x / 3600) % 60
-   
-    print(f"{hours:02}:{minutes:02}:{seconds:02}")
-    time.sleep(1)
-
-print("TIME'S UP")
+""" for x in range(3):
+    for x in range(1,10):
+        print(x, end="")
+    print() """
+    
+for x in range(rows):
+    for x in range(1, columns+1):
+        print(symbol, end="")
+    print()

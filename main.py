@@ -1,23 +1,31 @@
-""" name = input("Enter your name: ")
+#compound interest calculator
+principle = 0
+rate = 0
+time = 0
 
+while principle <=0:
+    principle = float(input("Enter principle amount: "))
+    if principle <=0:
+        print("principle can't be less than or equal to 0")
+        
+while rate <=0:
+    rate = float(input("Enter interest rate: "))
+    if rate <=0:
+        print("rate can't be less than or equal to 0")
+        
+while True:
+    time = int(input("Enter time in years: "))
+    if time < 0:
+        print("time can't be less than 0")
+    else:
+        break
+    
+total = principle * pow((1 + rate/100), time)
+interest = total - principle
 
-while name=="":
-    print("You did not enter your name👿")
-    name=input("Enter your name:")
-print(f"Hello {name}!")
+print(f"principle: {principle}")
+print(f"rate: {rate}")
+print(f"time: {time}")
 
-age = int(input("Enter your age: "))
-while age <0:
-    print("Age can't be negative!")
-    age = int(input("Enter your age: "))
-print(f"You are {age} years old")
- """
-
-food = input("Enter a food you like (q to quit): ")
-
-
-while not food=="q":
-    print(f"You like {food}")
-    food = input("Enter another food you like (q to quit): ")
-else:
-    print("Bye")
+print(f"total amount: ${round(total, 2)}")
+print(f"interest: ${round(interest, 2)}")

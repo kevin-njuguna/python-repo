@@ -1,21 +1,12 @@
-#1 over a range
-""" for x in range(1, 11, 2):
-    print(x) """
-    
-#2 reversed
-""" for x in reversed(range(1, 11)):
-    print(x)
-print("HAPPY NEW YEAR!") """
+import time
+duration = int(input("How long would you like to set the timer for (seconds): "))
 
-#3 over a string
-""" credit_card = "1234-5678-9012-3456"
+for x in (range(duration, 0, -1)):
+    seconds = x % 60
+    minutes = int(x / 60) % 60
+    hours = int(x / 3600) % 60
+   
+    print(f"{hours:02}:{minutes:02}:{seconds:02}")
+    time.sleep(1)
 
-for x in credit_card:
-    print(x) """
- 
- #continue statement   
-for x in range(1,21):
-    if x==13:
-        continue
-    else:
-        print(x)
+print("TIME'S UP")

@@ -1,50 +1,23 @@
-#1. LISTs 
+foods = []
+prices = []
+total = 0
 
-""" fruits = ["apple", "orange", "banana"] 
-print(fruits[0])
+while True: 
+    food = input("Enter a food to buy (q to quit): ")
+    if food.lower() =="q":
+        break
+    else:
+        price = float(input(f"Enter the price of a {food} $: "))
+        foods.append(food)
+        prices.append(price)
+        
+print("----- YOUR CART -----")
 
-    
-print(dir(fruits))
-print(help(fruits))
-print(len(fruits))
-print("apple" in fruits)
-fruits[0] = "watermelon"
-fruits.append("dragon fruit")
-fruits.remove("watermelon")
-fruits.insert(0, "watermelon")
-fruits.sort()
-fruits.reverse()
-fruits.clear()
-print(fruits.count("dragon fruit"))
-print(fruits.index("watermelon"))
-for fruit in fruits:
-    print(fruit) """
+for food in foods:
+    print(food, end=" ")
 
-#2. SET UNORDERED AND IMUTABLE. WE CAN HOWEVER ADD/REMOVE ELEMENTS.
-""" fruits = {"apple", "orange", "banana", "coconut"}
+for price in prices:
+    total += price
 
-print(dir(fruits))
-print(help(fruits))
-
-fruits.add("pineapple")
-fruits.remove("coconut")
-fruits.pop()
-fruits.clear()
-
-
-print(fruits) """
-
-#3. TUPLES. ORDERED AND UNCHANGEABLE. FASTER THAN LISTS
-
-fruits = ("apple", "pineapple", "orange", "banana")
-
-#print(dir(fruits))
-#print(help(fruits))
-#print(len(fruits))
-#print("pineapple" in fruits)
-
-print(fruits.index("apple"))
-print(fruits.count("orange"))
-print(fruits)
-for fruit in fruits:
-    print(fruit)
+print()    
+print(f"Your total is: ${total:.2f}")

@@ -1,23 +1,22 @@
-foods = []
-prices = []
-total = 0
+""" groceries = [["apple", "orange", "banana", "coconut"],
+            ["celery", "carrots", "potatoes"],   
+            ["chicken", "fish", "turkey"]]
 
-while True: 
-    food = input("Enter a food to buy (q to quit): ")
-    if food.lower() =="q":
-        break
-    else:
-        price = float(input(f"Enter the price of a {food} $: "))
-        foods.append(food)
-        prices.append(price)
-        
-print("----- YOUR CART -----")
+print(groceries[0][2])
 
-for food in foods:
-    print(food, end=" ")
+for collection in groceries:
+    for item in collection:
+        print(item, end=" ")
+    print() """
+    
+phone_layout = [["1","2","3"],
+                ["4","5","6"],
+                ["7","8", "9"],
+                ["*", "0", "#"]]
 
-for price in prices:
-    total += price
+print(phone_layout)
 
-print()    
-print(f"Your total is: ${total:.2f}")
+for collection in phone_layout:
+    for item in collection:
+        print(item, end=" ")
+    print()

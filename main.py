@@ -1,50 +1,38 @@
-questions = ("How many elements are in the periodic table?: ",
-             "Which animal lays the largest eggs?: ",
-             "What is the most abundant gas in the Earth's atmosphere?: ",
-             "How many bones are in the human body?: ",
-             "Which planet in the solar system is the hottest?: ")
+capitals = {"USA": "Washington DC",
+            "India": "New Delhi",
+            "Russia": "Moscow",
+            "Kenya": "Nairobi"
+            }
 
-options = (("A.116","B. 117","C. 118","D. 119"),
-           ("A.Whale","B. Crocoldile","C. Elephant","D. Ostrich"),
-           ("A. Nitrogen","B. Oxygen","C. Carbon-Dioxide","D. Hydrogen"),
-           ("A. 206","B. 207","C. 208","D. 209"),
-           ("A. Mercury","B. Venus","C. Earth","D. Mars"))
+#print(dir(capitals))
+#print(help(capitals))
 
-answers = ("C","D","A","A","B")
-guesses = []
-score = 0
-question_num = 0
+print(capitals.get("USA"))
 
-for question in questions:
-    print("-------------------------------------------------------------------")
-    print(question)
-    for option in options[question_num]:
-        print(option)
+if capitals.get("Japan"):
+    print("That capital exists")
+else:
+    print("That capital does not exist")
     
-    guess = input("Enter (A, B, C, D): ").upper() 
-    guesses.append(guess)
-    if guess == answers[question_num]:
-        score += 1
-        print("CORRECT!")
-    else:
-        print("INCORRECT!")
-        print(f"{answers[question_num]} is the correct answer")
-    question_num +=1
-    
-print("-----------------------------")
-print("          RESULTS            ")
-print("-----------------------------")
 
-print("answers: ", end=" ")
-for answer in answers:
-    print(answer, end= " ")
+#capitals.update({"Uganda": "Kampala"})
+#capitals.update({"USA": "Detroit"})
+
+#capitals.pop("India")
+#capitals.popitem() #removes the latest key value pair that was inserted.
+
+#capitals.clear()
+keys = capitals.keys()
+values = capitals.values()
+items = capitals.items()
+print(values)
+
+for key in keys:
+    print(key)
     
-print()
-        
-print("guesses: ", end=" ")
-for guess in guesses:
-    print(guess, end= " ")
     
-print()
-score = score / len(questions) * 100
-print(f"Your score is: {score:.2f}%")
+for value in values:
+    print(value, end= " ")
+    
+for key, value in items:
+    print(f"{key}: {value}")

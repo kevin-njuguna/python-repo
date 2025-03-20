@@ -1,38 +1,35 @@
-capitals = {"USA": "Washington DC",
-            "India": "New Delhi",
-            "Russia": "Moscow",
-            "Kenya": "Nairobi"
-            }
+#concession stand program
 
-#print(dir(capitals))
-#print(help(capitals))
+menu = {"ugali": 30.00,
+        "chapati": 20.00,
+        "samosa": 10.00,
+        "beans": 30.00,
+        "omena": 50.00}
 
-print(capitals.get("USA"))
+cart = []
+total = 0
 
-if capitals.get("Japan"):
-    print("That capital exists")
-else:
-    print("That capital does not exist")
+print("-----------MENU-----------")
+for key, value in menu.items():
+    print(f"{key:10}: ${value:.2f}")
     
+print("--------------------------")
 
-#capitals.update({"Uganda": "Kampala"})
-#capitals.update({"USA": "Detroit"})
 
-#capitals.pop("India")
-#capitals.popitem() #removes the latest key value pair that was inserted.
+while True:
+    food = input("Select an item (q to quit): ").lower()
+    if food == "q":
+        break
+    elif menu.get(food) is not None:
+        cart.append(food)
+        
+#print(cart)
+print("--------YOUR ORDER--------")
+for food in cart:
+    total += menu.get(food)
+    print(food, end=" ")
 
-#capitals.clear()
-keys = capitals.keys()
-values = capitals.values()
-items = capitals.items()
-print(values)
+print()
+print(f"Total: ${total:.2f}")
 
-for key in keys:
-    print(key)
-    
-    
-for value in values:
-    print(value, end= " ")
-    
-for key, value in items:
-    print(f"{key}: {value}")
+print("---------THANK YOU!---------")

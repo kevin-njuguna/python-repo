@@ -1,29 +1,37 @@
-#membership operators = used to test whether a variable is found in a sequence(string, list, tuple, set or dictionary)
-                #1.in
-                #2. not in
-                
-#EXAMPLE 1
-""" word = "apple"
+#list comprehension - a concise way to create lists in Python
+# Compact and easier to read than traditional loops
+#[expression for value in iterable if condition]
 
-letter = input("Guess a letter in the secret word: ").lower()
+#EXAMPLE 1 NUMBERS
+""" import math
+doubles = [x*2 for x in range(1,11)]
+print(doubles)
 
-if letter not in word:
-    print("Failed!")
-else:
-   print("CORRECT!")  """
-   
+triples = [y*3 for y in range(1,11)]
+print(triples)
 
-#EXAMPLE 2
-grades = {
-    "Peter": "A",
-    "Fridah": "B",
-    "Maureen": "C",
-    "Moraa": "D"
-}
+squares = [math.pow(z,2) for z in range(1,11)]
+print(squares) """
 
-student = input("Enter name of student: ").capitalize()
 
-if student in grades:
-    print(f"{student}'s grade is {grades[student]}")
-else:
-    print(f"{student} was not found!")
+#EXAMPLE 2 STRINGS
+""" fruits = ["apple", "orange", "banana", "coconut"]
+fruits =[fruit.upper() for fruit in fruits]
+
+print(fruits) """
+
+#EXAMPLE 3
+numbers = [1, -2, 3, -4, 5, -6]
+positive_nums = [num for num in numbers if num>=0]
+negative_nums = [num for num in numbers if num<0]
+even_nums = [num for num in numbers if num%2==0]
+odd_nums = [num for num in numbers if num%2==1]
+
+print(positive_nums)
+print(negative_nums)
+print(even_nums)
+print(odd_nums)
+
+grades = [65, 30, 40, 90, 87, 26, 44]
+passing_grades = [num for num in grades if num>=60]
+print(passing_grades)

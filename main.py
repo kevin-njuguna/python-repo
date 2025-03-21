@@ -1,21 +1,35 @@
-#EXAMPLE 1
-""" def hello(greeting- title, first, last):
-    print(f"{greeting} {title} {first} {last}")
-    
-hello("Hello", first="Kevin", last="Njuguna", title="Mr.") """
+#ARGS EXAMPLE 1
+""" def add(*args):
+    for arg in args:
+        total=0
+        total += (arg)
+    print(total)
+
+add(4,5,6) """
 
 #EXAMPLE 2
-#end is a keyword argurment
-""" for x in range(1,10):
-    print(x, end=" ") 
-     """
+""" def name(*args):
+    for arg in args:
+        print(arg)
+        
+name("Kevin", "Fridah", "Maureen")
+ """
+ 
+ #EXAMPLE 3
+""" def print_address(**kwargs):
+    for key,value in kwargs.items():
+        print(f"{key}: {value}")
 
-#EXAMPLE 3
-#sep is a keyword argurment   
-print("1","1","1","1","1","1", sep=" ")
+print_address(street="123", city="Mathioya", state="Murang'a", zip=123) """
 
-def get_phone(country, area, first, last):
-    return(f"{country}-{area}-{first}-{last}")
-    
-phone_number = get_phone(country=254, area=123, first=456, last=789)
-print(phone_number)
+
+#EXAMPLE 4
+def shipping_label(*args, **kwargs):
+    for arg in args:
+        print(arg, end= "")
+    print()
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+    print(kwargs.get("apt"))
+
+shipping_label("Dr.", "Spongebob", street="123FakeStreet" , county="Murang'a", country="Kenya", apt = "100")

@@ -1,19 +1,21 @@
-#default value for certain parameters
 #EXAMPLE 1
-""" def net_price(list_price, discount=0, tax=0.05):
-    return list_price * (1 - discount) * (1 + tax)
-
-print(net_price(500))
-print(net_price(500, 0.1)) """
-
+""" def hello(greeting- title, first, last):
+    print(f"{greeting} {title} {first} {last}")
+    
+hello("Hello", first="Kevin", last="Njuguna", title="Mr.") """
 
 #EXAMPLE 2
-import time
+#end is a keyword argurment
+""" for x in range(1,10):
+    print(x, end=" ") 
+     """
 
-def count(end, start = 0):
-    for x in range(start, end+1):
-        print(x)
-        time.sleep(1)
-    print("DONE")
+#EXAMPLE 3
+#sep is a keyword argurment   
+print("1","1","1","1","1","1", sep=" ")
+
+def get_phone(country, area, first, last):
+    return(f"{country}-{area}-{first}-{last}")
     
-count(14)
+phone_number = get_phone(country=254, area=123, first=456, last=789)
+print(phone_number)

@@ -1,13 +1,8 @@
-#print(help("modules"))
-#print(help("math"))
-
-import math
-import example
-#import math as m
-#from math import pi
-print(math.pi)
-
-result = example.pi
-print(result)
-print(example.square(3))
-print(example.circumfrence(4))
+def function1():
+    x = 1
+    def function2():
+        x = 2
+        print(x)
+    function2()
+    
+function1()

@@ -1,34 +1,91 @@
-import random 
-import string
+import random
+words = ("apple", "orange", "banana", "coconut", "pineapple")
+#print(random.choice(words))
 
-chars = " " + string.punctuation + string.digits + string.ascii_letters
-chars = list(chars)
+#dictionary of key: tuple
+hangman_art = {0: ("   ",
+                   "   ",
+                   "   "),
+               1: (" o ",
+                   "   ",
+                   "   "),
+               2: (" o ",
+                   " | ",
+                   "   "),
+               3: (" o ",
+                   "/|",
+                   "   "),
+               4: (" o ",
+                   "/|\\",
+                   "   "),
+               5: (" o ",
+                   "/|\\",
+                   "/   "),
+               6: (" o ",
+                   "/|\\",
+                   "/ \\")}
 
-key = chars.copy()
-random.shuffle(key)
-#print(f"chars: {chars}")
-#print(f"key: {key}")
+""" print(hangman_art[6])
 
-print(chars)
-
-#Encryption
-plain_text = input("Enter a message to encrypt: ")
-cipher_text = ""
-
-for letter in plain_text:
-    index = chars.index(letter)
-    cipher_text += key[index]
+for line in hangman_art[0]:
+    print(line) """
     
-print(f"Original message: {plain_text}")
-print(f"Encrypted message: {cipher_text}")
+def display_man(wrong_guesses):
+    print("*********************")
+    for line in hangman_art[wrong_guesses]:
+        print(line)
+    print("*********************")
 
-#Decryption
-cipher_text = input("Enter a message to decrypt: ")
-plain_text = ""
+def display_hint(hint):
+    print(" ".join(hint))
 
-for letter in cipher_text:
-    index = key.index(letter)
-    plain_text += chars[index]
+def display_answer(answer):
+    print(" ".join(answer))
 
-print(f"Encrypted message: {cipher_text}")    
-print(f"Original message: {plain_text}")
+def main():
+    answer = random.choice(words)
+    
+    hint = ["_"] * len(answer) 
+    wrong_guesses = 0
+    guessed_letters = set()
+    is_running = True
+    
+    while is_running:
+        display_man(wrong_guesses)
+        display_hint(hint)
+
+        guess = input("Enter a letter: ").lower()
+        
+        if len(guess) !=1 or not guess.isalpha():
+            print("Invalid input")
+            continue
+        
+        if guess in guessed_letters:
+            print(f"{guess} is already guessed")
+            continue
+            
+        guessed_letters.add(guess)
+        
+        if guess in answer:
+            for i in range(len(answer)):
+                if answer[i] == guess:
+                    hint[i] = guess
+        else:
+            wrong_guesses += 1
+            
+        if  "_" not in hint:
+            display_man(wrong_guesses)
+            display_answer(answer)
+            print("YOU WIN!")
+            is_running = False
+            
+        elif wrong_guesses >= len(hangman_art) - 1:
+            display_man(wrong_guesses)
+            display_answer(answer)
+            print("YOU LOSE!")
+            is_running = False
+
+if __name__ == "__main__":
+    main()
+
+

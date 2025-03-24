@@ -1,21 +1,32 @@
-#class variables - shared among all instances of a class
-# defined outside the constructor
-# allow you to share data among all objects created from that class
+#Inheritance - allows a class to inherit attributes and methods from another class
+# Helps with code reusability and extensibility
+#class Child(Parent)
 
-class Student:
-    
-   class_year = 2030
-   num_students = 0
-    
-   def __init__(self, name, age):
-      self.name = name
-      self.age = age
-      Student.num_students += 1
-      
-student1 = Student("Maureen",  19)
-student2 = Student("Fridah",  20)
+class Animal:
+    def __init__(self, name):
+        self.name = name
+        self.is_alive = True
+        
+    def eat(self):
+        print(f"{self.name} is eating")
+        
+    def sleep(self):
+        print(f"{self.name} is sleeping")
+        
 
-print(student1.name)
-#print(student2.class_year)
-print(Student.class_year)
-print(Student.num_students)
+class Dog(Animal):
+    def speak():
+        print("Woof")
+
+class Cat(Animal):
+    def speak(self):
+        print("Meoow")
+
+
+
+dog = Dog("scooby")
+cat = Cat("Tom")
+
+print(dog.name)
+cat.speak()
+cat.eat()

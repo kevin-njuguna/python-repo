@@ -1,32 +1,62 @@
-#Inheritance - allows a class to inherit attributes and methods from another class
-# Helps with code reusability and extensibility
-#class Child(Parent)
+# MULTIPLE INHERITANCE fish
+""" class Prey:
+    def flee(self):
+        print("This animal is fleeing")
+
+class Predator:
+    def hunt(self):
+        print("This animal is hunting")
+class Rabbit(Prey):
+    pass
+
+class Hawk(Predator):
+    pass
+
+class Fish(Prey, Predator):
+    pass
+
+rabbit = Rabbit()
+hawk = Hawk()
+fish = Fish()
+
+rabbit.flee()
+hawk.hunt()
+fish.hunt()
+ """
+#MULTILEVEL INHERITANCE
 
 class Animal:
     def __init__(self, name):
         self.name = name
-        self.is_alive = True
-        
+    
     def eat(self):
-        print(f"{self.name} is eating")
+        print(f"{self.name}  eats")
         
     def sleep(self):
-        print(f"{self.name} is sleeping")
-        
+        print(f"{self.name} sleeps")
+class Prey(Animal):
+    def flee(self):
+        print(f"{self.name} is fleeing")
 
-class Dog(Animal):
-    def speak():
-        print("Woof")
+class Predator(Animal):
+    def hunt(self):
+        print(f"{self.name} is hunting")
+class Rabbit(Prey):
+    pass
 
-class Cat(Animal):
-    def speak(self):
-        print("Meoow")
+class Hawk(Predator):
+    pass
 
+class Fish(Prey, Predator):
+    pass
 
+rabbit = Rabbit("Bugs")
+hawk = Hawk("Tony")
+fish = Fish("Nemo")
 
-dog = Dog("scooby")
-cat = Cat("Tom")
+rabbit.flee()
+hawk.hunt()
+fish.hunt()
 
-print(dog.name)
-cat.speak()
-cat.eat()
+fish.eat()
+rabbit.sleep()

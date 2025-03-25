@@ -1,35 +1,51 @@
-# class methods - allow operations related to the class itself
-#Take (cls) as the first parameter, which represents the class itself
+class Book:
+    
+    def __init__(self, title, author, num_pages):
+        self.title = title
+        self.author = author
+        self.num_pages = num_pages
+    
+    def __str__(self):
+        return f"'{self.title}' by {self.author}"
+    
+    def __eq__(self, other):
+        return self.title == other.title and self.author == other.author
+    
+    def __lt__(self, other):
+        return self.num_pages < other.num_pages
 
-class Student:
-    count = 0
-    total_gpa = 0
+    def __gt__(self, other):
+        return self.num_pages > other.num_pages
     
-    def __init__(self,name, gpa):
-        self.name = name
-        self.gpa = gpa
-        Student.count += 1 #Whenever we create a student object, increase count by 1
-        Student.total_gpa += gpa
-     
-    #INSTANCE METHOD   
-    def get_info(self):
-        return f"{self.name} : {self.gpa}"
+    def __add__(self, other):
+        return f"{self.num_pages + other.num_pages} pages"
     
-    @classmethod
-    def get_count(cls):
-        return f"Total number of students: {cls.count}"
+    def __contains__(self, keyword):
+        return keyword in self.title or keyword in self.author
     
-    
-    @classmethod
-    def get_average_gpa(cls):
-        if cls.count == 0:
-            return 0
+    def __getitem__(self, key):
+        if key == "title":
+            return self.title
+        elif key == "author":
+            return self.author
+        elif key == "num_pages":
+            return self.num_pages
         else:
-            return f"total gpa: {cls.total_gpa / cls.count}"
+            return f"{key} was not found"
+    
+        
+        
+book1 = Book("The Hobbit", "J.R.R Tolkien", 310)
+book2 = Book("Harry Potter and the Philosopher's Stone", "J.K Rowling", 223)
+book3 = Book("The Lion, the Witch and the Wardrobe", "C.S Lewis", 172)
 
-student1 = Student("Spongebob", 2)
-student1 = Student("Patrick", 4)
-student1 = Student("Patrick", 3)
-
-print(Student.get_count())
-print(Student.get_average_gpa())
+print(book1)
+print(book1 == book2)
+print(book1 < book2)
+print(book1 > book2)
+print(book1 + book2)
+print("Lion" in book1)
+print(book1['title'])
+print(book1['author'])
+print(book3["num_pages"])
+print(book3["num_paes"])

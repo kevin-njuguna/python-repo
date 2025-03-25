@@ -1,62 +1,51 @@
-# MULTIPLE INHERITANCE fish
-""" class Prey:
-    def flee(self):
-        print("This animal is fleeing")
-
-class Predator:
-    def hunt(self):
-        print("This animal is hunting")
-class Rabbit(Prey):
-    pass
-
-class Hawk(Predator):
-    pass
-
-class Fish(Prey, Predator):
-    pass
-
-rabbit = Rabbit()
-hawk = Hawk()
-fish = Fish()
-
-rabbit.flee()
-hawk.hunt()
-fish.hunt()
- """
-#MULTILEVEL INHERITANCE
-
-class Animal:
-    def __init__(self, name):
-        self.name = name
-    
-    def eat(self):
-        print(f"{self.name}  eats")
+class Shape:
+    def __init__(self, color, is_filled):
+        self.color = color
+        self.is_filled = is_filled
         
-    def sleep(self):
-        print(f"{self.name} sleeps")
-class Prey(Animal):
-    def flee(self):
-        print(f"{self.name} is fleeing")
+    def describe(self):
+        print(f"It is {self.color} and {'filled' if self.is_filled else not 'filled'}")
+    
+class Circle(Shape):
+    def __init__(self, color, is_filled, radius):
+        super().__init__(color, is_filled)
+        self.radius = radius
+        
+    # method overriding    
+    def describe(self):
+        super().describe()
+        print(f"It is a circle with an area of {(3.142 *self.radius ** 2):.2f}cm²")
+        return 0
+        
 
-class Predator(Animal):
-    def hunt(self):
-        print(f"{self.name} is hunting")
-class Rabbit(Prey):
-    pass
+class Square(Shape):
+    def __init__(self, color, is_filled, width):
+        super().__init__(color, is_filled)
+        self.width = width 
+    
+    def describe(self):
+        super().describe()
+        print(f"It is a square with an area of {(self.width ** 2):.2f}cm²")
 
-class Hawk(Predator):
-    pass
+class Triangle(Shape):
+    def __init__(self, color, is_filled, width, height):
+        super().__init__(color, is_filled)
+        self.width = width 
+        self.height = height
+        
+    def describe(self):
+        super().describe()
+        print(f"It is a triangle with an area of {(self.width * self.height * 0.5):.2f}cm²")
+        
+circle = Circle(color = "blue", is_filled= True, radius= 5) #object
+square = Square(color = "yellow", is_filled= True, width = 5) #object
+triangle = Triangle(color = "grey", is_filled= False, width = 5, height = 10) #object
 
-class Fish(Prey, Predator):
-    pass
 
-rabbit = Rabbit("Bugs")
-hawk = Hawk("Tony")
-fish = Fish("Nemo")
-
-rabbit.flee()
-hawk.hunt()
-fish.hunt()
-
-fish.eat()
-rabbit.sleep()
+print(circle.color)
+print(triangle.is_filled)
+print(circle.describe())
+print()
+print(square.describe())
+print()
+print(triangle.describe())

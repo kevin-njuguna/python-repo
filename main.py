@@ -1,51 +1,32 @@
+from abc import ABC, abstractmethod
+
 class Shape:
-    def __init__(self, color, is_filled):
-        self.color = color
-        self.is_filled = is_filled
-        
-    def describe(self):
-        print(f"It is {self.color} and {'filled' if self.is_filled else not 'filled'}")
     
+    @abstractmethod
+    def area(self):
+        pass
 class Circle(Shape):
-    def __init__(self, color, is_filled, radius):
-        super().__init__(color, is_filled)
+    def __init__(self, radius):
         self.radius = radius
-        
-    # method overriding    
-    def describe(self):
-        super().describe()
-        print(f"It is a circle with an area of {(3.142 *self.radius ** 2):.2f}cm²")
-        return 0
-        
+      
+    def area(self):
+        return 3.142 * self.radius ** 2
 
 class Square(Shape):
-    def __init__(self, color, is_filled, width):
-        super().__init__(color, is_filled)
-        self.width = width 
-    
-    def describe(self):
-        super().describe()
-        print(f"It is a square with an area of {(self.width ** 2):.2f}cm²")
+    def __init__(self, side):
+        self.side = side
 
+    def area(self):
+        return  self.side ** 2
 class Triangle(Shape):
-    def __init__(self, color, is_filled, width, height):
-        super().__init__(color, is_filled)
-        self.width = width 
+    def __init__(self, base, height):
+        self.base = base
         self.height = height
         
-    def describe(self):
-        super().describe()
-        print(f"It is a triangle with an area of {(self.width * self.height * 0.5):.2f}cm²")
-        
-circle = Circle(color = "blue", is_filled= True, radius= 5) #object
-square = Square(color = "yellow", is_filled= True, width = 5) #object
-triangle = Triangle(color = "grey", is_filled= False, width = 5, height = 10) #object
+    def area(self):
+        return self.height * self.base ** 0.5
 
+shapes = [Circle(4), Square(4), Triangle(3, 4)]
 
-print(circle.color)
-print(triangle.is_filled)
-print(circle.describe())
-print()
-print(square.describe())
-print()
-print(triangle.describe())
+for shape in shapes:
+    print(f"{shape.area():.2f} cm²" )

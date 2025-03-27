@@ -1,11 +1,14 @@
-try:
-    number = int(input("Enter a number: "))
-    print(1 / number)
-except ZeroDivisionError:
-    print("You can't divide by zero")
-except ValueError:
-    print("Enter only numbers please")
-except Exception:
-    print("Something went wrong!")
-finally:
-    print("Do some cleanup here!")
+import os
+
+file_path = "C:\\Users\\Admin\\Desktop\\test"
+
+if os.path.exists(file_path):
+    print(f"The location  '{file_path}' exists")
+    
+    if os.path.isfile(file_path):
+        print("That is a file")
+    elif os.path.isdir(file_path):
+        print("That is a folder")
+else:
+    print("The location doesn't exist")
+        

@@ -1,45 +1,23 @@
-#.TXT
-""" file_path ="output.txt"
+import datetime
 
-try:
-    with open(file_path, "r") as file:
-        content = file.read()
-        print(content)
-except FileNotFoundError:
-    print("That file not found")
-except PermissionError:
-    print("You do not have permission to read that file") """
-    
+date = datetime.date(2025, 1, 2)
+today = datetime.date.today()
 
-#JSON
-""" import json
+time = datetime.time(12, 30, 0)
+now = datetime.datetime.now()
 
-file_path = "output.json"
+now = now.strftime("%H:%M:%S %d-%m-%Y")
 
-try:
-    with open(file_path, "r") as file:
-        content = json.load(file)
-        print(content)
-        print(content["name"])
-except FileNotFoundError:
-    print("That file not found")
-except PermissionError:
-    print("You do not have permission to read that file") """
-    
+target_date_time = datetime.datetime(2040, 1, 2,  12, 30, 1)
+current_date_time = datetime.datetime.now()
 
-#CSV
-import csv
+#print(date)
+#print(today)
+#print(now)
 
-file_path = "output.csv"
+if target_date_time < current_date_time:
+    print("Target Date has passed")
+else:
+    print("Target date has not passed")
 
-try:
-    with open(file_path, "r") as file:
-        content = csv.reader(file)
-        for line in content:
-            print(line)
-            print(line[2])
-        
-except FileNotFoundError:
-    print("That file not found")
-except PermissionError:
-    print("You do not have permission to read that file")
+
